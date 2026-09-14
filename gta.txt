@@ -1,0 +1,1060 @@
+выроде лелвл оружия
+*(uint8_t*)(g_libGTASA + 0x27D8D2) //GetWantedLevel _Z16FindPlayerWantedi ; FindPlayerWanted(int)
+1.08
+3D3730                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3734                 MOV             R0, R6
+.text:003D3736                 MOV             R1, R5
+.text:003D3738                 MOV             R2, R4
+.text:003D373A                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D373E                 VADD.F32        S19, S17, S19
+.text:003D3742                 MOVS            R1, #0  ; unsigned __int8
+.text:003D3744                 STR.W           R9, [SP,#0x7C+var_7C] ; char
+.text:003D3748                 MOV             R3, R1  ; unsigned __int8
+.text:003D374A                 MOV             R2, R1  ; unsigned __int8
+.text:003D374C                 MOV             R0, R4  ; this
+.text:003D374E                 VSTR            S20, [R7,#0x64+var_5C]
+.text:003D3752                 VSTR            S16, [R7,#0x64+var_54]
+.text:003D3756                 VSTR            S17, [R7,#0x64+var_58]
+.text:003D375A                 VSTR            S19, [R7,#0x64+var_50]
+.text:003D375E                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3762                 MOV             R0, R6
+.text:003D3764                 MOV             R1, R5
+.text:003D3766                 MOV             R2, R4
+.text:003D3768                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D376C                 MOVS            R1, #0  ; unsigned __int8
+.text:003D376E                 MOV             R2, R1  ; unsigned __int8
+.text:003D3770                 MOV             R3, R1  ; unsigned __int8
+.text:003D3772                 STR.W           R9, [SP,#0x7C+var_7C] ; char
+.text:003D3776                 MOV             R0, R4  ; this
+.text:003D3778                 VSTR            S18, [R7,#0x64+var_5C]
+.text:003D377C                 VSTR            S19, [R7,#0x64+var_50]
+.text:003D3780                 VSTR            S16, [R7,#0x64+var_54]
+.text:003D3784                 VSTR            S17, [R7,#0x64+var_58]
+
+
+//
+3D3460 ; =============== S U B R O U T I N E =======================================
+.text:003D3460
+.text:003D3460 ; Attributes: bp-based frame fpd=0x64
+.text:003D3460CODE XREF: CHud::DrawRadar(void
+.text:003D3460 sub_3D3460                              ; )+26↓j
+.text:003D3460                 PUSH.W          {R4-R9,LR}
+.text:003D3464                 MOVS            R1, #2
+.text:003D3466                 VPUSH           {D8-D14}
+.text:003D346A                 MOVS            R0, #9
+.text:003D346C                 LDR             R6, =(_GLOBAL_OFFSET_TABLE_ - 0x3D3472)
+.text:003D346E                 ADD             R6, PC
+.text:003D3470                 SUB             SP, SP, #0x44
+.text:003D3472                 ADD             R7, SP, #0x18
+.text:003D3474                 BL              _Z16RwRenderStateSet13RwRenderStatePv ; RwRenderStateSet(RwRenderState,void *)
+.text:003D3478                 MOVS            R1, #1
+.text:003D347A                 MOVS            R0, #7
+.text:003D347C                 BL              _Z16RwRenderStateSet13RwRenderStatePv ; RwRenderStateSet(RwRenderState,void *)
+.text:003D3480                 BL              _ZN6CRadar7DrawMapEv ; CRadar::DrawMap(void)
+.text:003D3484                 MOV.W           R0, #0xFFFFFFFF
+.text:003D3488                 MOVS            R1, #0
+.text:003D348A                 BL              _Z17FindPlayerVehicleib ; FindPlayerVehicle(int,bool)
+.text:003D348E                 LDR             R3, =0x3C74
+.text:003D3490                 LDR             R3, [R6,R3]
+.text:003D3492                 LDR.W           R8, [R3,#0x280]
+.text:003D3496                 CMP.W           R8, #0
+.text:003D349A                 BEQ.W           loc_3D37A0
+.text:003D349E                 VLDR            S15, [R8,#0x20]
+.text:003D34A2                 MOV             R5, R0
+.text:003D34A4                 LDR             R3, =0x318C
+.text:003D34A6                 VLDR            S16, [R8,#0x28]
+.text:003D34AA                 LDR             R3, [R6,R3]
+.text:003D34AC                 VLDR            S14, [R8,#0x24]
+.text:003D34B0                 LDRSB.W         R3, [R3,#0x121]
+.text:003D34B4                 VLDR            S17, [R8,#0x2C]
+.text:003D34B8                 CMP             R3, #5
+.text:003D34BA                 ITE NE
+.text:003D34BC                 LDRBNE.W        R9, [R8,#0x4C]
+.text:003D34C0                 MOVEQ.W         R9, #0xFF
+.text:003D34C4                 VSUB.F32        S18, S16, S15
+.text:003D34C8                 VSUB.F32        S19, S14, S17
+.text:003D34CC                 VADD.F32        S16, S15, S16
+.text:003D34D0                 VADD.F32        S17, S14, S17
+.text:003D34D4                 VMOV.F32        S15, #0.5
+.text:003D34D8                 VABS.F32        S18, S18
+.text:003D34DC                 VABS.F32        S19, S19
+.text:003D34E0                 VMUL.F32        S18, S18, S15
+.text:003D34E4                 VMUL.F32        S16, S16, S15
+.text:003D34E8                 VMUL.F32        S19, S19, S15
+.text:003D34EC                 VMUL.F32        S17, S17, S15
+.text:003D34F0                 CMP             R0, #0
+.text:003D34F2                 BEQ.W           loc_3D36B2
+.text:003D34F6                 LDR.W           R3, [R0,#0x5A0]
+.text:003D34FA                 CMP             R3, #4
+.text:003D34FC                 BEQ.W           loc_3D383C
+.text:003D3500
+.text:003D3500 loc_3D3500                              ; CODE XREF: sub_3D3460+3E6↓j
+.text:003D3500                 LDR             R2, =0x37A4
+.text:003D3502                 ADDS            R4, R7, #4
+.text:003D3504                 LDR             R6, [R6,R2]
+.text:003D3506
+.text:003D3506 loc_3D3506                              ; CODE XREF: sub_3D3460+534↓j
+.text:003D3506                 SUBS            R3, #3
+.text:003D3508                 CMP             R3, #1
+.text:003D350A                 BLS.W           loc_3D37DC
+.text:003D350E
+.text:003D350E loc_3D350E                              ; CODE XREF: sub_3D3460+386↓j
+.text:003D350E                 MOV.W           R0, #0xFFFFFFFF
+.text:003D3512                 BL              _Z13FindPlayerPedi ; FindPlayerPed(int)
+.text:003D3516                 LDR.W           R0, [R0,#0x43C]
+.text:003D351A                 BL              _ZNK16CPedIntelligence17GetUsingParachuteEv ; CPedIntelligence::GetUsingParachute(void)
+.text:003D351E                 CMP             R0, #0
+.text:003D3520                 BEQ.W           loc_3D37D6
+.text:003D3524                 LDR             R3, [R5,#0x14]
+.text:003D3526                 CMP             R3, #0
+.text:003D3528                 BEQ.W           loc_3D37F2
+.text:003D352C
+.text:003D352C loc_3D352C                              ; CODE XREF: sub_3D3460+38E↓j
+.text:003D352C                 ADDS            R3, #0x30 ; '0'
+.text:003D352E
+.text:003D352E loc_3D352E                              ; CODE XREF: sub_3D3460+394↓j
+.text:003D352E                 VLDR            S20, [R3,#8]
+.text:003D3532
+.text:003D3532 loc_3D3532                              ; CODE XREF: sub_3D3460+374↓j
+.text:003D3532                 MOVS            R1, #0
+.text:003D3534                 MOVS            R0, #1
+.text:003D3536                 ADD.W           R5, R7, #8
+.text:003D353A                 VLDR            S14, =200.0
+.text:003D353E                 VLDR            S15, =950.0
+.text:003D3542                 VCMPE.F32       S20, S14
+.text:003D3546                 VMRS            APSR_nzcv, FPSCR
+.text:003D354A                 ITE LE
+.text:003D354C                 VMOVLE.F32      S21, S14
+.text:003D3550                 VMOVGT.F32      S21, S15
+.text:003D3554                 BL              _Z16RwRenderStateSet13RwRenderStatePv ; RwRenderStateSet(RwRenderState,void *)
+.text:003D3558                 VLDR            S15, =1.35
+.text:003D355C                 MOVS            R1, #0
+.text:003D355E                 STR.W           R9, [SP]
+.text:003D3562                 MOV             R2, R1
+.text:003D3564                 MOV             R3, R1
+.text:003D3566                 VDIV.F32        S14, S20, S21
+.text:003D356A                 MOV             R0, R4
+.text:003D356C                 VMOV.F32        S20, #0.75
+.text:003D3570                 VMUL.F32        S20, S19, S20
+.text:003D3574                 VMOV.F32        S13, #1.25
+.text:003D3578                 VMOV.F32        S23, S16
+.text:003D357C                 VMOV.F32        S22, S16
+.text:003D3580                 VADD.F32        S24, S17, S20
+.text:003D3584                 VMUL.F32        S14, S19, S14
+.text:003D3588                 VMLA.F32        S23, S18, S13
+.text:003D358C                 VMLA.F32        S22, S18, S15
+.text:003D3590                 VSUB.F32        S20, S17, S20
+.text:003D3594                 VMOV.F32        S15, #2.0
+.text:003D3598                 VMOV.F32        S13, #1.5
+.text:003D359C                 VMOV.F32        S21, S24
+.text:003D35A0                 VMLS.F32        S21, S14, S13
+.text:003D35A4                 VSUB.F32        S14, S20, S15
+.text:003D35A8                 VADD.F32        S13, S24, S15
+.text:003D35AC                 VSTR            S14, [R7,#0x14]
+.text:003D35B0                 VSUB.F32        S14, S23, S15
+.text:003D35B4                 VSTR            S13, [R7,#0xC]
+.text:003D35B8                 VADD.F32        S15, S22, S15
+.text:003D35BC                 VSTR            S14, [R7,#8]
+.text:003D35C0                 VSTR            S15, [R7,#0x10]
+.text:003D35C4                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D35C8                 MOV             R0, R5
+.text:003D35CA                 MOV             R1, R4
+.text:003D35CC                 BL              _ZN9CSprite2d8DrawRectERK5CRectRK5CRGBA ; CSprite2d::DrawRect(CRect const&,CRGBA const&)
+.text:003D35D0                 MOVS            R1, #0x60 ; '`'
+.text:003D35D2                 MOV             R2, R1
+.text:003D35D4                 MOV             R3, R1
+.text:003D35D6                 STR.W           R9, [SP]
+.text:003D35DA                 MOV             R0, R4
+.text:003D35DC                 VSTR            S20, [R7,#0x14]
+.text:003D35E0                 VSTR            S21, [R7,#0xC]
+.text:003D35E4                 VSTR            S23, [R7,#8]
+.text:003D35E8                 VSTR            S22, [R7,#0x10]
+.text:003D35EC                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D35F0                 MOV             R0, R5
+.text:003D35F2                 MOV             R1, R4
+.text:003D35F4                 BL              _ZN9CSprite2d8DrawRectERK5CRectRK5CRGBA ; CSprite2d::DrawRect(CRect const&,CRGBA const&)
+.text:003D35F8                 MOVS            R1, #0xF0
+.text:003D35FA                 VLDR            S20, =0.05
+.text:003D35FE                 MOV             R2, R1
+.text:003D3600                 MOV             R3, R1
+.text:003D3602                 STR.W           R9, [SP]
+.text:003D3606                 MOV             R0, R4
+.text:003D3608                 VSTR            S21, [R7,#0x14]
+.text:003D360C                 VSTR            S23, [R7,#8]
+.text:003D3610                 VSTR            S22, [R7,#0x10]
+.text:003D3614                 VSTR            S24, [R7,#0xC]
+.text:003D3618                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D361C                 MOV             R0, R5
+.text:003D361E                 MOV             R1, R4
+.text:003D3620                 BL              _ZN9CSprite2d8DrawRectERK5CRectRK5CRGBA ; CSprite2d::DrawRect(CRect const&,CRGBA const&)
+.text:003D3624                 MOVS            R1, #0
+.text:003D3626                 VMUL.F32        S20, S19, S20
+.text:003D362A                 MOV             R2, R1
+.text:003D362C                 VLDR            S14, =1.2
+.text:003D3630                 MOV             R3, R1
+.text:003D3632                 STR.W           R9, [SP]
+.text:003D3636                 MOV             R0, R4
+.text:003D3638                 VLDR            S15, =1.4
+.text:003D363C                 VSTR            S21, [R7,#0x14]
+.text:003D3640                 VMOV.F32        S23, S16
+.text:003D3644                 VMOV.F32        S22, S16
+.text:003D3648                 VCVT.S32.F32    S20, S20
+.text:003D364C                 VMLA.F32        S23, S18, S14
+.text:003D3650                 VMLA.F32        S22, S18, S15
+.text:003D3654                 VSTR            S23, [R7,#8]
+.text:003D3658                 VCVT.F32.S32    S20, S20
+.text:003D365C                 VSTR            S22, [R7,#0x10]
+.text:003D3660                 VADD.F32        S20, S21, S20
+.text:003D3664                 VSTR            S20, [R7,#0xC]
+.text:003D3668                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D366C                 MOV             R0, R5
+.text:003D366E                 MOV             R1, R4
+.text:003D3670                 BL              _ZN9CSprite2d8DrawRectERK5CRectRK5CRGBA ; CSprite2d::DrawRect(CRect const&,CRGBA const&)
+.text:003D3674                 MOVS            R1, #0xFF
+.text:003D3676                 VMOV.F32        S15, #1.0
+.text:003D367A                 MOV             R2, R1
+.text:003D367C                 MOV             R3, R1
+.text:003D367E                 STR.W           R9, [SP]
+.text:003D3682                 MOV             R0, R4
+.text:003D3684                 VSUB.F32        S20, S20, S15
+.text:003D3688                 VADD.F32        S21, S21, S15
+.text:003D368C                 VSTR            S20, [R7,#0xC]
+.text:003D3690                 VADD.F32        S23, S23, S15
+.text:003D3694                 VSTR            S21, [R7,#0x14]
+.text:003D3698                 VSUB.F32        S22, S22, S15
+.text:003D369C                 VSTR            S23, [R7,#8]
+.text:003D36A0                 VSTR            S22, [R7,#0x10]
+.text:003D36A4                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D36A8                 MOV             R0, R5
+.text:003D36AA                 MOV             R1, R4
+.text:003D36AC                 BL              _ZN9CSprite2d8DrawRectERK5CRectRK5CRGBA ; CSprite2d::DrawRect(CRect const&,CRGBA const&)
+.text:003D36B0                 B               loc_3D36D0
+.text:003D36B2 ; ---------------------------------------------------------------------------
+.text:003D36B2
+.text:003D36B2 loc_3D36B2                              ; CODE XREF: sub_3D3460+92↑j
+.text:003D36B2                 MOV.W           R0, #0xFFFFFFFF
+.text:003D36B6                 BL              _Z13FindPlayerPedi ; FindPlayerPed(int)
+.text:003D36BA                 LDR.W           R0, [R0,#0x43C]
+.text:003D36BE                 BL              _ZNK16CPedIntelligence17GetUsingParachuteEv ; CPedIntelligence::GetUsingParachute(void)
+.text:003D36C2                 CMP             R0, #0
+.text:003D36C4                 BNE             loc_3D37B6
+.text:003D36C6                 LDR             R3, =0x37A4
+.text:003D36C8                 ADDS            R4, R7, #4
+.text:003D36CA                 ADD.W           R5, R7, #8
+.text:003D36CE                 LDR             R6, [R6,R3]
+.text:003D36D0
+.text:003D36D0 loc_3D36D0                              ; CODE XREF: sub_3D3460+250↑j
+.text:003D36D0                                         ; sub_3D3460+37A↓j
+.text:003D36D0                 VLDR            S15, =1.02
+.text:003D36D4                 ADDS            R6, #0xC
+.text:003D36D6                 MOVS            R1, #0
+.text:003D36D8                 STR.W           R9, [SP]
+.text:003D36DC                 MOV             R3, R1
+.text:003D36DE                 MOV             R2, R1
+.text:003D36E0                 MOV             R0, R4
+.text:003D36E2                 VSTR            S16, [R7,#0x10]
+.text:003D36E6                 VMUL.F32        S18, S18, S15
+.text:003D36EA                 VSTR            S17, [R7,#0xC]
+.text:003D36EE                 VMUL.F32        S19, S19, S15
+.text:003D36F2                 VSUB.F32        S20, S16, S18
+.text:003D36F6                 VSUB.F32        S21, S17, S19
+.text:003D36FA                 VSTR            S20, [R7,#8]
+.text:003D36FE                 VSTR            S21, [R7,#0x14]
+.text:003D3702                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3706                 MOV             R0, R6
+.text:003D3708                 MOV             R1, R5
+.text:003D370A                 MOV             R2, R4
+.text:003D370C                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D3710                 VADD.F32        S18, S16, S18
+.text:003D3714                 MOVS            R1, #0
+.text:003D3716                 STR.W           R9, [SP]
+.text:003D371A                 MOV             R3, R1
+.text:003D371C                 MOV             R2, R1
+.text:003D371E                 MOV             R0, R4
+.text:003D3720                 VSTR            S21, [R7,#0x14]
+.text:003D3724                 VSTR            S16, [R7,#0x10]
+.text:003D3728                 VSTR            S17, [R7,#0xC]
+.text:003D372C                 VSTR            S18, [R7,#8]
+.text:003D3730                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3734                 MOV             R0, R6
+.text:003D3736                 MOV             R1, R5
+.text:003D3738                 MOV             R2, R4
+.text:003D373A                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D373E                 VADD.F32        S19, S17, S19
+.text:003D3742                 MOVS            R1, #0
+.text:003D3744                 STR.W           R9, [SP]
+.text:003D3748                 MOV             R3, R1
+.text:003D374A                 MOV             R2, R1
+.text:003D374C                 MOV             R0, R4
+.text:003D374E                 VSTR            S20, [R7,#8]
+.text:003D3752                 VSTR            S16, [R7,#0x10]
+.text:003D3756                 VSTR            S17, [R7,#0xC]
+.text:003D375A                 VSTR            S19, [R7,#0x14]
+.text:003D375E                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3762                 MOV             R0, R6
+.text:003D3764                 MOV             R1, R5
+.text:003D3766                 MOV             R2, R4
+.text:003D3768                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D376C                 MOVS            R1, #0
+.text:003D376E                 MOV             R2, R1
+.text:003D3770                 MOV             R3, R1
+.text:003D3772                 STR.W           R9, [SP]
+.text:003D3776                 MOV             R0, R4
+.text:003D3778                 VSTR            S18, [R7,#8]
+.text:003D377C                 VSTR            S19, [R7,#0x14]
+.text:003D3780                 VSTR            S16, [R7,#0x10]
+.text:003D3784                 VSTR            S17, [R7,#0xC]
+.text:003D3788                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D378C                 MOV             R0, R6
+.text:003D378E                 MOV             R1, R5
+.text:003D3790                 MOV             R2, R4
+.text:003D3792                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D3796                 LDR.W           R0, [R8,#0x88]
+.text:003D379A                 CBZ             R0, loc_3D37A0
+.text:003D379C                 BL              _ZN11CHoldEffect4DrawEv ; CHoldEffect::Draw(void)
+.text:003D37A0
+.text:003D37A0 loc_3D37A0                              ; CODE XREF: sub_3D3460+3A↑j
+.text:003D37A0                                         ; sub_3D3460+33A↑j
+.text:003D37A0                 MOVS            R0, #0xBF800000
+.text:003D37A6                 BL              _ZN6CRadar9DrawBlipsEf ; CRadar::DrawBlips(float)
+.text:003D37AA                 ADDS            R7, #0x2C ; ','
+.text:003D37AC                 MOV             SP, R7
+.text:003D37AE                 VPOP            {D8-D14}
+.text:003D37B2                 POP.W           {R4-R9,PC}
+.text:003D37B6 ; ---------------------------------------------------------------------------
+.text:003D37B6
+.text:003D37B6 loc_3D37B6                              ; CODE XREF: sub_3D3460+264↑j
+.text:003D37B6                 MOV.W           R0, #0xFFFFFFFF
+.text:003D37BA                 BL              _Z13FindPlayerPedi ; FindPlayerPed(int)
+.text:003D37BE                 LDR             R3, [R0,#0x14]
+.text:003D37C0                 CMP             R3, #0
+.text:003D37C2                 BEQ.W           loc_3D3996
+.text:003D37C6                 ADD.W           R0, R3, #0x30 ; '0'
+.text:003D37CA
+.text:003D37CA loc_3D37CA                              ; CODE XREF: sub_3D3460+538↓j
+.text:003D37CA                 LDR             R3, =0x37A4
+.text:003D37CC                 ADDS            R4, R7, #4
+.text:003D37CE                 VLDR            S20, [R0,#8]
+.text:003D37D2                 LDR             R6, [R6,R3]
+.text:003D37D4                 B               loc_3D3532
+.text:003D37D6 ; ---------------------------------------------------------------------------
+.text:003D37D6
+.text:003D37D6 loc_3D37D6                              ; CODE XREF: sub_3D3460+C0↑j
+.text:003D37D6                 ADD.W           R5, R7, #8
+.text:003D37DA                 B               loc_3D36D0
+.text:003D37DC ; ---------------------------------------------------------------------------
+.text:003D37DC
+.text:003D37DC loc_3D37DC                              ; CODE XREF: sub_3D3460+AA↑j
+.text:003D37DC                 LDRSH.W         R2, [R5,#0x22]
+.text:003D37E0                 MOVW            R3, #0x21B
+.text:003D37E4                 CMP             R2, R3
+.text:003D37E6                 BEQ.W           loc_3D350E
+.text:003D37EA                 LDR             R3, [R5,#0x14]
+.text:003D37EC                 CMP             R3, #0
+.text:003D37EE                 BNE.W           loc_3D352C
+.text:003D37F2
+.text:003D37F2 loc_3D37F2                              ; CODE XREF: sub_3D3460+C8↑j
+.text:003D37F2                 ADDS            R3, R5, #4
+.text:003D37F4                 B               loc_3D352E
+.text:003D37F4 ; ---------------------------------------------------------------------------
+.text:003D37F6                 DCB    0
+.text:003D37F7                 DCB 0xBF
+.text:003D37F8 flt_3D37F8      DCFS 200.0              ; DATA XREF: sub_3D3460+DA↑r
+.text:003D37FC flt_3D37FC      DCFS 950.0              ; DATA XREF: sub_3D3460+DE↑r
+.text:003D3800 flt_3D3800      DCFS 1.35               ; DATA XREF: sub_3D3460+F8↑r
+.text:003D3804 flt_3D3804      DCFS 0.05               ; DATA XREF: sub_3D3460+19A↑r
+.text:003D3808 flt_3D3808      DCFS 1.2                ; DATA XREF: sub_3D3460+1CC↑r
+.text:003D380C flt_3D380C      DCFS 1.4                ; DATA XREF: sub_3D3460+1D8↑r
+.text:003D3810 flt_3D3810      DCFS 1.02               ; DATA XREF: sub_3D3460:loc_3D36D0↑r
+.text:003D3814 off_3D3814      DCD _GLOBAL_OFFSET_TABLE_ - 0x3D3472
+.text:003D3814                                         ; DATA XREF: sub_3D3460+C↑r
+.text:003D3818 dword_3D3818    DCD 0x3C74              ; DATA XREF: sub_3D3460+2E↑r
+.text:003D381C dword_3D381C    DCD 0x318C              ; DATA XREF: sub_3D3460+44↑r
+.text:003D3820 dword_3D3820    DCD 0x37A4              ; DATA XREF: sub_3D3460:loc_3D3500↑r
+.text:003D3820                                         ; sub_3D3460+266↑r ...
+.text:003D3824 flt_3D3824      DCFS -0.7854            ; DATA XREF: sub_3D3460+3F0↓r
+.text:003D3828 flt_3D3828      DCFS 0.0                ; DATA XREF: sub_3D3460+3FE↓r
+.text:003D382C flt_3D382C      DCFS 1.6                ; DATA XREF: sub_3D3460+40A↓r
+.text:003D3830 flt_3D3830      DCFS 1.5708             ; DATA XREF: sub_3D3460+442↓r
+.text:003D3834 flt_3D3834      DCFS 3.1416             ; DATA XREF: sub_3D3460+472↓r
+.text:003D3838 flt_3D3838      DCFS 4.7124             ; DATA XREF: sub_3D3460+4AA↓r
+.text:003D383C ; ---------------------------------------------------------------------------
+.text:003D383C
+.text:003D383C loc_3D383C                              ; CODE XREF: sub_3D3460+9C↑j
+.text:003D383C                 LDRSH.W         R1, [R0,#0x22]
+.text:003D3840                 MOVW            R2, #0x21B
+.text:003D3844                 CMP             R1, R2
+.text:003D3846                 BEQ.W           loc_3D3500
+.text:003D384A                 LDR             R3, [R0,#0x14]
+.text:003D384C                 VMOV.F32        S24, S16
+.text:003D3850                 VLDR            S20, =-0.7854
+.text:003D3854                 ADDS            R4, R7, #4
+.text:003D3856                 LDR             R0, [R3,#8]
+.text:003D3858                 LDR             R1, [R3,#0x28]
+.text:003D385A                 VMOV.F32        S25, S17
+.text:003D385E                 VLDR            S23, =0.0
+.text:003D3862                 EOR.W           R0, R0, #0x80000000
+.text:003D3866                 BLX             atan2f
+.text:003D386A                 VLDR            S21, =1.6
+.text:003D386E                 VMOV.F32        S26, S16
+.text:003D3872                 VMUL.F32        S22, S18, S21
+.text:003D3876                 VMUL.F32        S21, S19, S21
+.text:003D387A                 VMOV.F32        S28, S17
+.text:003D387E                 VMOV            S15, R0
+.text:003D3882                 VSUB.F32        S20, S20, S15
+.text:003D3886                 VADD.F32        S23, S20, S23
+.text:003D388A                 VMOV            R0, S23
+.text:003D388E                 BLX             sinf
+.text:003D3892                 VMOV.F32        S27, S16
+.text:003D3896                 VMOV            S15, R0
+.text:003D389A                 VMOV            R0, S23
+.text:003D389E                 VMLA.F32        S24, S15, S22
+.text:003D38A2                 VLDR            S23, =1.5708
+.text:003D38A6                 VSTR            S24, [R7,#8]
+.text:003D38AA                 BLX             cosf
+.text:003D38AE                 VADD.F32        S23, S20, S23
+.text:003D38B2                 VMOV            S15, R0
+.text:003D38B6                 VMOV            R0, S23
+.text:003D38BA                 VMLA.F32        S25, S15, S21
+.text:003D38BE                 VSTR            S25, [R7,#0xC]
+.text:003D38C2                 BLX             sinf
+.text:003D38C6                 VMOV            S15, R0
+.text:003D38CA                 VMOV            R0, S23
+.text:003D38CE                 VMLA.F32        S26, S15, S22
+.text:003D38D2                 VLDR            S23, =3.1416
+.text:003D38D6                 VSTR            S26, [R7,#0x10]
+.text:003D38DA                 BLX             cosf
+.text:003D38DE                 VADD.F32        S23, S20, S23
+.text:003D38E2                 VMOV            S15, R0
+.text:003D38E6                 VMOV            R0, S23
+.text:003D38EA                 VMLA.F32        S28, S15, S21
+.text:003D38EE                 VSTR            S28, [R7,#0x14]
+.text:003D38F2                 BLX             sinf
+.text:003D38F6                 VMOV            S15, R0
+.text:003D38FA                 VMOV            R0, S23
+.text:003D38FE                 VMLA.F32        S27, S15, S22
+.text:003D3902                 VSTR            S27, [R7,#0x18]
+.text:003D3906                 BLX             cosf
+.text:003D390A                 VLDR            S15, =4.7124
+.text:003D390E                 VMOV.F32        S23, S17
+.text:003D3912                 VADD.F32        S20, S20, S15
+.text:003D3916                 VMOV            S15, R0
+.text:003D391A                 VMOV            R0, S20
+.text:003D391E                 VMLA.F32        S23, S15, S21
+.text:003D3922                 VSTR            S23, [R7,#0x1C]
+.text:003D3926                 BLX             sinf
+.text:003D392A                 VMOV.F32        S15, S16
+.text:003D392E                 VMOV            S14, R0
+.text:003D3932                 VMOV            R0, S20
+.text:003D3936                 VMLA.F32        S15, S14, S22
+.text:003D393A                 VMOV.F32        S22, S15
+.text:003D393E                 VSTR            S15, [R7,#0x20]
+.text:003D3942                 BLX             cosf
+.text:003D3946                 MOVS            R1, #0xFF
+.text:003D3948                 STR.W           R9, [SP]
+.text:003D394C                 MOV             R2, R1
+.text:003D394E                 MOV             R3, R1
+.text:003D3950                 VMOV.F32        S20, S17
+.text:003D3954                 VMOV            S15, R0
+.text:003D3958                 MOV             R0, R4
+.text:003D395A                 VMLA.F32        S20, S15, S21
+.text:003D395E                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D3962                 LDR             R3, =0x37A4
+.text:003D3964                 VMOV            R1, S26
+.text:003D3968                 VMOV            R2, S28
+.text:003D396C                 LDR             R6, [R6,R3]
+.text:003D396E                 VMOV            R3, S24
+.text:003D3972                 VSTR            S25, [SP]
+.text:003D3976                 ADD.W           R0, R6, #0x10
+.text:003D397A                 STR             R4, [SP,#0x14]
+.text:003D397C                 VSTR            S27, [SP,#4]
+.text:003D3980                 VSTR            S23, [SP,#8]
+.text:003D3984                 VSTR            S22, [SP,#0xC]
+.text:003D3988                 VSTR            S20, [SP,#0x10]
+.text:003D398C                 BL              _ZN9CSprite2d4DrawEffffffffRK5CRGBA ; CSprite2d::Draw(float,float,float,float,float,float,float,float,CRGBA const&)
+.text:003D3990                 LDR.W           R3, [R5,#0x5A0]
+.text:003D3994                 B               loc_3D3506
+.text:003D3996 ; ---------------------------------------------------------------------------
+.text:003D3996
+.text:003D3996 loc_3D3996                              ; CODE XREF: sub_3D3460+362↑j
+.text:003D3996                 ADDS            R0, #4
+.text:003D3998                 B               loc_3D37CA
+.text:003D3998 ; End of function sub_3D3460
+.text:003D3998
+.text:003D3998 ; ---------------------------------------------------------------------------
+.text:003D399A                 DCB    0
+.text:003D399B                 DCB 0xBF
+.text:003D399C dword_3D399C    DCD 0x37A4              ; DATA XREF: sub_3D3460+502↑r
+.text:003D39A0
+.text:003D39A0 ; =============== S U B R O U T I N E =======================================
+.text:003D39A0
+.text:003D39A0 ; Attributes: bp-based frame
+.text:003D39A0
+.text:003D39A0 ; CHud::Shutdown(void)
+.text:003D39A0                 EXPORT _ZN4CHud8ShutdownEv
+.text:003D39A0 _ZN4CHud8ShutdownEv                     ; CODE XREF: CGame::ShutdownRenderWare(void)+26↑p
+.text:003D39A0                                         ; DATA XREF: LOAD:00062804↑o
+.text:003D39A0                 PUSH            {R4,R5,R7,LR}
+.text:003D39A2                 ADD             R7, SP, #0
+.text:003D39A4                 LDR             R5, =(_ZN4CHud7SpritesE_ptr - 0x3D39AC)
+.text:003D39A6                 MOVS            R4, #0
+.text:003D39A8                 ADD             R5, PC
+.text:003D39AA                 LDR             R5, [R5]
+.text:003D39AC
+.text:003D39AC loc_3D39AC                              ; CODE XREF: CHud::Shutdown(void)+16↓j
+.text:003D39AC                 ADDS            R0, R5, R4
+.text:003D39AE                 ADDS            R4, #4
+.text:003D39B0                 BL              _ZN9CSprite2d6DeleteEv ; CSprite2d::Delete(void)
+.text:003D39B4                 CMP             R4, #0x18
+.text:003D39B6                 BNE             loc_3D39AC
+.text:003D39B8                 LDR             R0, =(unk_5B5E00 - 0x3D39BE)
+.text:003D39BA                 ADD             R0, PC
+.text:003D39BC                 BL              _ZN9CTxdStore11FindTxdSlotEPKc ; CTxdStore::FindTxdSlot(char const*)
+.text:003D39C0                 MOV             SP, R7
+.text:003D39C2                 POP.W           {R4,R5,R7,LR}
+.text:003D39C6                 B.W             _ZN9CTxdStore13RemoveTxdSlotEi ; CTxdStore::RemoveTxdSlot(int)
+.text:003D39C6 ; End of function CHud::Shutdown(void)
+.text:003D39C6
+.text:003D39C6 ; ---------------------------------------------------------------------------
+.text:003D39CA                 DCB    0
+.text:003D39CB                 DCB 0xBF
+.text:003D39CC off_3D39CC      DCD _ZN4CHud7SpritesE_ptr - 0x3D39AC
+.text:003D39CC                                         ; DATA XREF: CHud::Shutdown(void)+4↑r
+.text:003D39D0 off_3D39D0      DCD unk_5B5E00 - 0x3D39BE
+.text:003D39D0                                         ; DATA XREF: CHud::Shutdown(void)+18↑r
+.text:003D39D4
+.text:003D39D4 ; =============== S U B R O U T I N E =======================================
+.text:003D39D4
+.text:003D39D4 ; Attributes: bp-based frame fpd=0xC
+.text:003D39D4
+.text:003D39D4 ; CHud::ReInitialise(void)
+.text:003D39D4                 EXPORT _ZN4CHud12ReInitialiseEv
+.text:003D39D4 _ZN4CHud12ReInitialiseEv                ; CODE XREF: CGame::Shutdown(void)+136↑p
+.text:003D39D4                                         ; CGame::ReInitGameObjectVariables(void)+56↑p ...
+.text:003D39D4                 LDR.W           R3, =(_GLOBAL_OFFSET_TABLE_ - 0x3D39E6)
+.text:003D39D8                 MOVS            R2, #0
+.text:003D39DA                 LDR.W           R1, =0x1938
+.text:003D39DE                 VMOV.I32        Q9, #0
+.text:003D39E2                 ADD             R3, PC
+.text:003D39E4                 LDR.W           R0, =0x5C0
+.text:003D39E8                 PUSH.W          {R4-R11,LR}
+.text:003D39EC                 SUB             SP, SP, #0xC
+.text:003D39EE                 LDR.W           R4, =0x44B0
+.text:003D39F2                 MOVS            R6, #1
+.text:003D39F4                 LDR             R5, [R3,R1]
+.text:003D39F6                 ADD             R7, SP, #0
+.text:003D39F8                 LDR.W           R1, =0xCAC
+.text:003D39FC                 LDR.W           R9, =0x42DC
+.text:003D3A00                 STRB            R6, [R5]
+.text:003D3A02                 LDR             R4, [R3,R4]
+.text:003D3A04                 LDR.W           R8, =0x9D0
+.text:003D3A08                 LDR.W           R12, =0x25CC
+.text:003D3A0C                 STRB            R6, [R4]
+.text:003D3A0E                 LDR             R0, [R3,R0]
+.text:003D3A10                 LDR.W           LR, =0x2770
+.text:003D3A14                 LDR.W           R6, =0x159C
+.text:003D3A18                 STR             R2, [R0]
+.text:003D3A1A                 LDR             R1, [R3,R1]
+.text:003D3A1C                 LDR.W           R5, =0x4A0
+.text:003D3A20                 LDR.W           R4, =0x1610
+.text:003D3A24                 STR             R2, [R1]
+.text:003D3A26                 LDR.W           R1, [R3,R9]
+.text:003D3A2A                 LDR.W           R0, =0x44F8
+.text:003D3A2E                 LDR.W           R9, =0x97C
+.text:003D3A32                 STR             R2, [R1]
+.text:003D3A34                 LDR.W           R1, [R3,R8]
+.text:003D3A38                 STR             R2, [R1]
+.text:003D3A3A                 LDR.W           R1, [R3,R12]
+.text:003D3A3E                 STR             R2, [R1]
+.text:003D3A40                 LDR.W           R1, [R3,LR]
+.text:003D3A44                 STR             R2, [R1]
+.text:003D3A46                 LDR             R6, [R3,R6]
+.text:003D3A48                 STR             R2, [R6]
+.text:003D3A4A                 LDR             R5, [R3,R5]
+.text:003D3A4C                 STR             R2, [R5]
+.text:003D3A4E                 LDR             R4, [R3,R4]
+.text:003D3A50                 STR             R2, [R4]
+.text:003D3A52                 LDR             R0, [R3,R0]
+.text:003D3A54                 STR             R2, [R0]
+.text:003D3A56                 LDR.W           R2, [R3,R9]
+.text:003D3A5A                 ADD.W           R1, R2, #0x320
+.text:003D3A5E
+.text:003D3A5E loc_3D3A5E                              ; CODE XREF: CHud::ReInitialise(void)+96↓j
+.text:003D3A5E                 VST1.64         {D18-D19}, [R2@64]
+.text:003D3A62                 ADDS            R2, #0x10
+.text:003D3A64                 CMP             R2, R1
+///2.1
+.text:000000000051D52C                 BL              ._ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:000000000051D530  //эт               LDR             X0, [X21,#0x98] ; this
+.text:000000000051D534                 CBZ             X0, loc_51D53C
+.text:000000000051D538                 BL              ._ZN11CHoldEffect4DrawEv ; CHoldEffect::Draw(void)
+///
+.text:000000000051D4FC                 BL              ._ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:000000000051D500   //это              ADD             X0, SP, #0xA0+var_88 ; this
+.text:000000000051D504                 MOV             W1, WZR ; red
+///
+.text:000000000051D4C8                 BL              ._ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:000000000051D4CC        //это         FADD            S10, S11, S10
+.text:000000000051D4D0                 ADD             X0, SP, #0xA0+var_88 ; this
+///
+.text:000000000051D494                 BL              ._ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:000000000051D498         //это        FADD            S9, S8, S9
+.text:000000000051D49C                 ADD             X0, SP, #0xA0+var_88 ; this
+//
+Address	Function	Instruction
+.text:003D3792	sub_3D3460	                BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D3788                 BL              _ZN5CRGBAC2Ehhhh ; CRGBA::CRGBA(uchar,uchar,uchar,uchar)
+.text:003D378C                 MOV             R0, R6
+.text:003D378E                 MOV             R1, R5
+.text:003D3790                 MOV             R2, R4
+.text:003D3792                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D3796                 LDR.W           R0, [R8,#0x88] ; this
+.text:003D379A                 CBZ             R0, loc_3D37A0
+.text:003D379C                 BL              _ZN11CHoldEffect4DrawEv ; CHoldEffect::Draw(void)
+.text:003D37A0
+.text:003D37A0 loc_3D37A0                              ; CODE XREF: sub_3D3460+3A↑j
+.text:003D37A0                                         ; sub_3D3460+33A↑j
+.text:003D37A0                 MOVS            R0, #0xBF800000 ; this
+.text:003D37A6                 BL              _ZN6CRadar9DrawBlipsEf ; CRadar::DrawBlips(float)
+.text:003D37AA                 ADDS            R7, #0x2C ; ','
+.text:003D37AC                 MOV             SP, R7
+.text:003D37AE                 VPOP            {D8-D14}
+.text:003D37B2                 POP.W           {R4-R9,PC}
+.text:003D37B6 ; ---------------------------------------------------------------------------
+.text:003D37B6
+.text:003D37B6 loc_3D37B6                              ; CODE XREF: sub_3D3460+264↑j
+.text:003D37B6                 MOV.W           R0, #0xFFFFFFFF ; int
+.text:003D37BA                 BL              _Z13FindPlayerPedi ; FindPlayerPed(int)
+.text:003D37BE                 LDR             R3, [R0,#0x14]
+.text:003D37C0                 CMP             R3, #0
+.text:003D37C2                 BEQ.W           loc_3D3996
+.text:003D37C6                 ADD.W           R0, R3, #0x30 ; '0'
+.text:003D37CA
+.text:003D37CA loc_3D37CA                              ; CODE XREF: sub_3D3460+538↓j
+.text:003D37CA                 LDR             R3, =(_ZN4CHud7SpritesE_ptr - 0x5CD760)
+.text:003D37CC                 ADDS            R4, R7, #4
+.text:003D37CE                 VLDR            S20, [R0,#8]
+.text:003D37D2                 LDR             R6, [R6,R3] ; _ZN4CHud7SpritesE_ptr ...
+.text:003D37D4                 B               loc_3D3532
+.text:003D37D6 ; ---------------------------------------------------------------------------
+.text:003D37D6
+.text:003D37D6 loc_3D37D6                              ; CODE XREF: sub_3D3460+C0↑j
+.text:003D37D6                 ADD.W           R5, R7, #8
+///
+ext:003D3792                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D3796                 LDR.W           R0, [R8,#0x88]
+3D376C
+.text:003D3768                 BL              _ZN9CSprite2d4DrawERK5CRectRK5CRGBA ; CSprite2d::Draw(CRect const&,CRGBA const&)
+.text:003D376C                 MOVS            R1, #0
+.bss:006580C8 dword_6580C8    % 4                     ; DATA XREF: MobileMenu::InitForPause(void)+52↑r
+.text:003D6E6C	_ZN4CHud4DrawEv	
+
+.text:0025C298
+.text:0025C298 ; Attributes: bp-based frame
+.text:0025C298
+.text:0025C298 ; MobileMenu::InitForPause(void)
+.text:0025C298                 EXPORT _ZN10MobileMenu12InitForPauseEv
+.text:0025C298 _ZN10MobileMenu12InitForPauseEv         ; CODE XREF: MobileMenu::Update(void)+242↓p
+.text:0025C298                                         ; Idle(void *,bool)+292↓p
+.text:0025C298                                         ; DATA XREF: ...
+.text:0025C298                 PUSH            {R3-R7,LR}
+.text:0025C29A                 MOVS            R6, #0
+.text:0025C29C                 LDR             R5, =(AudioEngine_ptr - 0x25C2AA)
+.text:0025C29E                 MOV.W           R3, #0x3F800000
+.text:0025C2A2                 ADD             R7, SP, #0
+.text:0025C2A4                 MOVS            R2, #0
+.text:0025C2A6                 ADD             R5, PC  ; AudioEngine_ptr
+.text:0025C2A8                 LDR             R5, [R5] ; AudioEngine
+.text:0025C2AA                 MOV             R1, R6
+.text:0025C2AC                 MOV             R4, R0
+.text:0025C2AE                 STRB.W          R6, [R0,#0x55]
+.text:0025C2B2                 MOV             R0, R5
+.text:0025C2B4                 BL              _ZN12CAudioEngine24ReportFrontendAudioEventEiff ; CAudioEngine::ReportFrontendAudioEvent(int,float,float)
+.text:0025C2B8                 MOV             R0, R5
+.text:0025C2BA                 BL              _ZN12CAudioEngine7ServiceEv ; CAudioEngine::Service(void)
+.text:0025C2BE                 BL              _Z21Menu_SwitchOnFromGamev ; Menu_SwitchOnFromGame(void)
+.text:0025C2C2                 BL              _Z17Menu_MapInitPausev ; Menu_MapInitPause(void)
+.text:0025C2C6                 MOV             R0, R4
+.text:0025C2C8                 BL              _ZN10MobileMenu4LoadEv ; MobileMenu::Load(void)
+.text:0025C2CC                 MOVS            R0, #0x58 ; 'X'
+.text:0025C2CE                 BLX             _Znwj   ; operator new(uint)
+.text:0025C2D2                 MOVS            R1, #1
+.text:0025C2D4                 MOV             R5, R0
+.text:0025C2D6                 BL              _ZN14MainMenuScreenC2Eb ; MainMenuScreen::MainMenuScreen(bool)
+.text:0025C2DA                 MOV             R2, R6
+.text:0025C2DC                 MOV             R0, R4
+.text:0025C2DE                 MOV             R1, R5
+.text:0025C2E0                 BL              _ZN10MobileMenu9AddScreenEP10MenuScreenb ; MobileMenu::AddScreen(MenuScreen *,bool)
+.text:0025C2E4                 LDR             R3, =(_ZN15CTouchInterface10m_pWidgetsE_ptr - 0x25C2EA)
+.text:0025C2E6                 ADD             R3, PC  ; _ZN15CTouchInterface10m_pWidgetsE_ptr
+.text:0025C2E8                 LDR             R3, [R3] ; CTouchInterface::m_pWidgets
+.text:0025C2EA                 LDR.W           R2, [R3,#(dword_6580C8 - 0x657E48)]
+.text:0025C2EE                 CBZ             R2, locret_25C320
+.text:0025C2F0                 LDR             R3, =(_ZN17CEntryExitManager17ms_exitEnterStateE_ptr - 0x25C2F6)
+.text:0025C2F2                 ADD             R3, PC  ; _ZN17CEntryExitManager17ms_exitEnterStateE_ptr
+.text:0025C2F4                 LDR             R3, [R3] ; CEntryExitManager::ms_exitEnterState
+.text:0025C2F6                 LDR             R3, [R3] ; CEntryExitManager::ms_exitEnterState
+arm8 2.18D2010
+[ arm7 .bss:006F379C                 EXPORT _ZN15CTouchInterface10m_pWidgetsE]
+
+.text:00000000004F0454	_Z16FindPlayerWantedi	                EXPORT _Z16FindPlayerWantedi
+
+
+              ; CODE XREF: MobileMenu::InitForPause(void)+7C↑j
+.text:00000000003571B8                 STR             X20, [this,#0x30]
+.text:00000000003571BC                 ADRP            X8, #_ZN15CTouchInterface10m_pWidgetsE_ptr@PAGE
+.text:00000000003571C0                 LDR             X8, [X8,#_ZN15CTouchInterface10m_pWidgetsE_ptr@PAGEOFF]
+.text:00000000003571C4                 LDR             X8, [X8,#(_ZN15CTouchInterface10m_pWidgetsE+0x508 - 0x8D2010)] ; CTouchInterface::m_pWidgets
+.text:00000000003571C8 pWidgetRadar = X8                       ; CWidget *
+.text:00000000003571C8                 CBZ             pWidgetRadar, loc_357208
+.text:00000000003571CC                 ADRP            X9, #_ZN17CEntryExitManager17ms_exitEnterStateE_ptr@PAGE
+.text:00000000003571D0                 LDR             X9, [X9,#_ZN17CEntryExitManager17ms_exitEnterStateE_ptr@PAGEOFF]
+.text:00000000003571D4                 LDR             W9, [X9] ; CEntryExitManager::ms_exitEnterState
+.text:00000000003571D8                 SUB             W9, W9, #1
+.text:00000000003571DC                 CMP             W9, #2
+.text:00000000003571E0                 B.CC            loc_357208
+.text:00000000003571E4                 LDR             S0, [pWidgetRadar,#0x50]
+.text:00000000003571E8                 ADRP            pWidgetRadar, #dword_73ABC0@PAGE
+.text:00000000003571EC                 LDR             S1, [X8,#dword_73ABC0@PAGEOFF]
+.text:00000000003571F0                 FCMP            S0, S1
+.text:00000000003571F4                 B.LE            loc_357208
+.text:00000000003571F8                 MOV             W8, #1
+.text:00000000003571FC                 MOV             W9, #0x3F800000
+.text:0000000000357200                 STRB            W8, [this,#0x8D]
+.text:0000000000357204                 STR             W9, [X20,#0x10]
+.text:0000000000357208
+.text:0000000000357208 loc_357208                              ; CODE XREF: MobileMenu::InitForPause(void)+98↑j
+.text:0000000000357208                                         ; MobileMenu::InitForPause(void)+B0↑j ...
+.text:0000000000357208                 LDP             X29, X30, [SP,#0x10+var_s0]
+.text:000000000035720C                 LDP             X20, this, [SP+0x10+var_10],#0x20
+
+
+
+
+
+
+
+
+
+
+*********************
+
+
+
+
+Address	Function	Instruction
+LOAD:0000000000088E60		                Elf64_Sym <aZ16findplayerw - unk_A5FD8, 0x12, 0, 9, \ ; "_Z16FindPlayerWantedi" ...
+LOAD:00000000000CC6E3		aZ16findplayerw DCB "_Z16FindPlayerWantedi",0
+LOAD:0000000000179F6C		                DCW 1                   ; global symbol: _Z16FindPlayerWantedi
+LOAD:0000000000210818		                Elf64_Rela <0x847130, 0x423E00000402, 0> ; R_AARCH64_JUMP_SLOT _Z16FindPlayerWantedi
+.text:000000000037E15C	_ZN17CWidgetPlayerInfo10DrawWantedEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000037E168	_ZN17CWidgetPlayerInfo10DrawWantedEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000037E2C8	_ZN17CWidgetPlayerInfo10DrawWantedEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000392E24	_ZN10CStreaming21StreamVehiclesAndPedsEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000392FC0	_ZN10CStreaming21StreamVehiclesAndPedsEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000039315C	_ZN10CStreaming21StreamVehiclesAndPedsEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003933C0	_ZN10CStreaming21StreamVehiclesAndPedsEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003933E0	_ZN10CStreaming21StreamVehiclesAndPedsEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003973B8	_ZN10CStreaming15StreamCopModelsEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003973C4	_ZN10CStreaming15StreamCopModelsEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A6D50	_ZN6CCarAI29BackToCruisingIfNoWantedLevelEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A6D80	_ZN6CCarAI29BackToCruisingIfNoWantedLevelEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A6EAC	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A7528	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A78C4	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A7A04	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A7A34	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A9404	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A945C	_ZN6CCarAI11UpdateCarAIEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A94F8	_ZN6CCarAI32FindPoliceCarSpeedForWantedLevelEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A9714	_ZN6CCarAI19MellowOutChaseSpeedEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A978C	_ZN6CCarAI19MellowOutChaseSpeedEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A993C	_ZN6CCarAI23MellowOutChaseSpeedBoatEP8CVehicle	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A9988	_ZN6CCarAI35FindPoliceBoatMissionForWantedLevelEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003A99E4	_ZN6CCarAI34FindPoliceCarMissionForWantedLevelEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABDE4	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABDFC	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABE10	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABE1C	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABE70	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ABF58	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003AC000	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003AC07C	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003AC41C	_ZN8CCarCtrl20GenerateOneRandomCarEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ADCEC	_ZN8CCarCtrl20ChoosePoliceCarModelEj	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ADD58	_ZN8CCarCtrl20ChoosePoliceCarModelEj	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ADD90	_ZN8CCarCtrl20ChoosePoliceCarModelEj	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003CE850	_ZN10CGameLogic43SetPlayerWantedLevelForForbiddenTerritoriesEb	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003CE8FC	_ZN10CGameLogic43SetPlayerWantedLevelForForbiddenTerritoriesEb	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D4B04	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D4B14	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D5014	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D5F58	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D5FA0	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D6220	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003D6A2C	_ZN7CGarage6UpdateEi	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003ED4A8	_ZN11CRoadBlocks18GenerateRoadBlocksEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003EDA10	_ZN11CRoadBlocks18GenerateRoadBlocksEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003EDEE0	_ZN11CRoadBlocks29CreateRoadBlockBetween2PointsE7CVectorS0_j	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003EDEF8	_ZN11CRoadBlocks29CreateRoadBlockBetween2PointsE7CVectorS0_j	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003EDF10	_ZN11CRoadBlocks29CreateRoadBlockBetween2PointsE7CVectorS0_j	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003EFDBC	_ZN15CMissionCleanup7ProcessEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000003F69BC	_ZN14CRunningScript23ProcessCommands200To299Ei	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000040A384	_ZN14CRunningScript25ProcessCommands2500To2599Ei	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000004151D8	_ZN14CRunningScript23ProcessCommands900To999Ei	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000042FD24	_ZN9CShopping3BuyEji	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000442AB4	_ZNK13CEventGunShot10AffectsPedEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000442AC8	_ZNK13CEventGunShot10AffectsPedEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000442ADC	_ZNK13CEventGunShot10AffectsPedEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000444A88	_ZNK12CEventDamage19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000444AC8	_ZNK12CEventDamage19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000444B14	_ZNK12CEventDamage19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000447DB4	_ZNK15CEventAttractor10AffectsPedEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000004494E8	_ZNK18CEventKnockOffBike19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000044AF68	_ZNK19CEventVehicleDamage19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000044D614	_ZNK22CEventVehicleHitAndRun19ReportCriminalEventEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000047A00C	_ZN27CAEPoliceScannerAudioEntity13AddAudioEventEi10eCrimeTypeRK7CVector	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000047A034	_ZN27CAEPoliceScannerAudioEntity13AddAudioEventEi10eCrimeTypeRK7CVector	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000004F0454	_Z16FindPlayerWantedi	                EXPORT _Z16FindPlayerWantedi
+.text:0000000000506024	_ZN7CWanted29ClearWantedLevelAndGoOnParoleEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000506034	_ZN7CWanted29ClearWantedLevelAndGoOnParoleEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000506DF0	_ZN7CWanted15UpdateEachFrameEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000511C28	_ZN6CWorld33CallOffChaseForAreaSectorListPedsER8CPtrListffffffff	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000594218	_ZN7CCopPedD2Ev	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000594428	_ZN7CCopPedD0Ev	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000059447C	_ZN7CCopPed14ProcessControlEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005AE278	_ZN21CPedGroupIntelligence24ProcessIgnorePlayerGroupEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005CC1F0	_ZN11CPopulation15AddToPopulationEffff	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005E3240	_ZN25CTaskComplexKillPedOnFoot17CreateNextSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005E327C	_ZN25CTaskComplexKillPedOnFoot17CreateNextSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005E3C98	_ZN25CTaskComplexKillPedOnFoot14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005E3D8C	_ZN25CTaskComplexKillPedOnFoot14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005E6614	_ZN30CTaskComplexKillPedOnFootArmed13CreateSubTaskEiP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005ED278	_ZN27CTaskComplexKillPedFromBoat14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005ED3DC	_ZN27CTaskComplexKillPedFromBoat14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005F41CC	_ZN21CTaskComplexUseEffect14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000005F41DC	_ZN21CTaskComplexUseEffect14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000061BC04	_ZN22CTaskSimpleEvasiveDive9StartAnimEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000061BC30	_ZN22CTaskSimpleEvasiveDive9StartAnimEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:00000000006307C8	_ZN29CTaskComplexProstituteSolicit14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000630A7C	_ZN29CTaskComplexProstituteSolicit14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A1EC	_ZNK21CTaskComplexWanderCop18ShouldPursuePlayerEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A22C	_ZNK21CTaskComplexWanderCop18ShouldPursuePlayerEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A2A8	_ZN21CTaskComplexWanderCop18CreateFirstSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A2D8	_ZN21CTaskComplexWanderCop18CreateFirstSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A504	_ZN21CTaskComplexWanderCop14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000063A534	_ZN21CTaskComplexWanderCop14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659BC4	_ZN21CTaskComplexArrestPed14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659CB4	_ZN21CTaskComplexArrestPed14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659D34	_ZN21CTaskComplexArrestPed14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659E78	_ZN25CTaskComplexPolicePursuitD2Ev	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659EC4	_ZN25CTaskComplexPolicePursuit12ClearPursuitEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000659F1C	_ZN25CTaskComplexPolicePursuitD0Ev	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065A12C	_ZN25CTaskComplexPolicePursuit10SetPursuitEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065A348	_ZN25CTaskComplexPolicePursuit14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065A570	_ZN25CTaskComplexPolicePursuit14PersistPursuitEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065A5E8	_ZN25CTaskComplexPolicePursuit14PersistPursuitEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065A628	_ZN25CTaskComplexPolicePursuit9SetWeaponEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065BDA8	_ZN24CTaskComplexKillCriminal14ControlSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000065D18C	_ZN20CTaskComplexCopInCar17CreateNextSubTaskEP4CPed	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:0000000000694078	_ZN5CHeli14ProcessControlEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.text:000000000069562C	_ZN5CHeli11UpdateHelisEv	                BL              ._Z16FindPlayerWantedi ; FindPlayerWanted(int)
+.got:0000000000847130		_Z16FindPlayerWantedi_ptr DCQ _Z16FindPlayerWantedi
+
+
+
+
+******************
+
+
+худ 1.08
+7165E8 - ZN11CTheScripts11bDisplayHudE
+ss:007165E8                 EXPORT _ZN11CTheScripts11bDisplayHudE
+.bss:007165E8 ; CTheScripts::bDisplayHud
+.bss:007165E8 _ZN11CTheScripts11bDisplayHudE % 1      ; DATA XREF: LOAD:0004E394↑o
+.bss:007165E8                                         ; CWidgetPlayerInfo::Draw(void)+268↑o ...
+2.1
+arm8 -
+--
+Address	Function	Instruction
+LOAD:0000000000060F00		                           _ZN11CTheScripts11bDisplayHudE, 1>
+LOAD:00000000000CC6F9		aZn11cthescript_4 DCB "_ZN11CTheScripts11bDisplayHudE",0
+LOAD:0000000000176A24		                DCW 1                   ; global symbol: _ZN11CTheScripts11bDisplayHudE
+LOAD:00000000001E5EE8		                Elf64_Rela <0x84DA18, 0x279A00000401, 0> ; R_AARCH64_GLOB_DAT _ZN11CTheScripts11bDisplayHudE
+.got:000000000084DA18		_ZN11CTheScripts11bDisplayHudE_ptr DCQ _ZN11CTheScripts11bDisplayHudE
+.bss:00000000009FF3A8		                EXPORT _ZN11CTheScripts11bDisplayHudE
+---
+arm7 -
+--
+Address	Function	Instruction
+LOAD:0004D6EC		                           _ZN11CTheScripts11bDisplayHudE, 1, 0x11, 0, 0x13>
+LOAD:000A26D5		aZn11cthescript_4 DCB "_ZN11CTheScripts11bDisplayHudE",0
+LOAD:0014CE46		                DCW 1                   ; global symbol: _ZN11CTheScripts11bDisplayHudE
+LOAD:00175F0C		                Elf32_Rel <0x677CF4, 0x27D615> ; R_ARM_GLOB_DAT _ZN11CTheScripts11bDisplayHudE
+.text:002BD0C4	_ZN17CWidgetPlayerInfo4DrawEv	                LDR.W           R0, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x2BD0CC)
+.text:002BD5F8		off_2BD5F8      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x2BD0CC
+.text:002BE31C	_ZN17CWidgetPlayerInfo23PassesDisplayConditionsEv	                LDR             R2, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x2BE322)
+.text:002BE378		off_2BE378      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x2BE322
+.text:00327A02	_ZN15CMissionCleanup7ProcessEv	                LDR.W           R2, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x327A0C)
+.text:0032817C		off_32817C      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x327A0C
+.text:0032A32C	_ZN11CTheScripts4InitEv	                LDR.W           R0, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x32A334)
+.text:0032AB44		off_32AB44      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x32A334
+.text:00336B6A	_ZN14CRunningScript25ProcessCommands2000To2099Ei	                LDR.W           R1, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x336B74)
+.text:00337688		off_337688      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x336B74
+.text:004380B8	_ZN4CHud12DrawAreaNameEv	                LDR.W           R1, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x4380C0)
+.text:0043858C		off_43858C      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x4380C0
+.text:00438950	_ZN4CHud15DrawVehicleNameEv	                LDR             R0, =(_ZN11CTheScripts11bDisplayHudE_ptr - 0x438956)
+.text:00438A84		off_438A84      DCD _ZN11CTheScripts11bDisplayHudE_ptr - 0x438956
+.got:00677CF4		_ZN11CTheScripts11bDisplayHudE_ptr DCD _ZN11CTheScripts11bDisplayHudE
+.bss:00819D88		                EXPORT _ZN11CTheScripts11bDisplayHudE
+---
+
+
+1.08
+54EEC0 - ; CSprite::CalcScreenCoors(RwV3d const&, RwV3d*, float *, float *, bool, bool)
+.text:0054EEC0                 EXPORT _ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb
+.text:0054EEC0 _ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb
+8B1134 -  unk_8B1134      % 1                     ; DATA XREF: CCollision::SortOutCollisionAfterLoad(void)+10↑o
+.bss:008B1134                                         ; CSimpleVariablesSaveStructure::Construct(void)+BA↑o // dword_0         DCD 0x464C457F          ; CODE XREF: sub_19BD70+140↓p
+
+8B1138 - dword_0         DCD 0x464C457F          ; CODE XREF: sub_179218+C↓j
+8B113C - dword_0         DCD 0x464C457F          ; CODE XREF: sub_179218+C↓j
+2.1
+8 -----
+- .text:00000000006E9DF8	_ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb	                EXPORT _ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb
+- .text:0000000000575D44	_ZN29CSimpleVariablesSaveStructure9ConstructEv	; void __fastcall CSimpleVariablesSaveStructure::Construct(CSimpleVariablesSaveStructure *this)
+-----------7------
+- .text:005C57E8	_ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb	                EXPORT _ZN7CSprite15CalcScreenCoorsERK5RwV3dPS0_PfS4_bb
+- .text:002D9842                 ALIGN 4
+.text:002D9844 off_2D9844      DCD TheCamera_ptr - 0x2D9828
+.text:002D9844                                         ; DATA XREF: CCollision::SortOutCollisionAfterLoad(void)+4↑r
+.text:002D9844 ; } // starts at 2D981C
+
+
+///TheCamera_ptr
+.got:0000000000840328                                         ; DATA XREF: CCollision::SortOutCollisionAfterLoad(void)↑o
+.got:0000000000840328                                         ; CCollision::SortOutCollisionAfterLoad(void)+4↑r ...
+.got:0000000000840328                                         ; CCollision::SortOutCollisionAfterLoad(void)
+
+:000000000039C3DC ; void __cdecl CCollision::SortOutCollisionAfterLoad()
+.text:000000000039C3DC                 EXPORT _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC                                         ; CODE XREF: CCollision::SortOutCollisionAfterLoad(void)+C↑j
+.text:000000000039C3DC                                         ; DATA XREF: LOAD:0000000000040D40↑o ...
+.text:000000000039C3DC
+.text:000000000039C3DC var_s0          =  0
+
+///
+000000000039C3DC
+.text:000000000039C3DC ; =============== S U B R O U T I N E =======================================
+.text:000000000039C3DC
+.text:000000000039C3DC ; Attributes: static bp-based frame
+.text:000000000039C3DC
+.text:000000000039C3DC ; void __cdecl CCollision::SortOutCollisionAfterLoad()
+.text:000000000039C3DC                 EXPORT _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC                                         ; CODE XREF: CCollision::SortOutCollisionAfterLoad(void)+C↑j
+.text:000000000039C3DC                                         ; DATA XREF: LOAD:0000000000040D40↑o ...
+.text:000000000039C3DC
+.text:000000000039C3DC var_s0          =  0
+.text:000000000039C3DC
+.text:000000000039C3DC ; __unwind {
+
+
+///
+:002D9802 ; End of function CCollision::Shutdown(void)
+.text:002D9802
+.text:002D9802 ; ---------------------------------------------------------------------------
+.text:002D9806                 ALIGN 4
+.text:002D9808 off_2D9808      DCD _ZN10CCollision16ms_colModelCacheE_ptr - 0x2D97CA
+.text:002D9808                                         ; DATA XREF: CCollision::Shutdown(void)+4↑r
+.text:002D980C off_2D980C      DCD _ZN10CCollision16ms_colModelCacheE_ptr - 0x2D97D6
+.text:002D980C                                         ; DATA XREF: CCollision::Shutdown(void)+10↑r
+.text:002D9810 off_2D9810      DCD _ZN10CCollision16ms_colModelCacheE_ptr - 0x2D97EA
+.text:002D9810                                         ; DATA XREF: CCollision::Shutdown(void):loc_2D97E4↑r
+.text:002D9814 off_2D9814      DCD _ZN10CCollision16ms_colModelCacheE_ptr - 0x2D97FC
+.text:002D9814                                         ; DATA XREF: CCollision::Shutdown(void)+34↑r
+.text:002D9814 ; } // starts at 2D97C0
+.text:002D9818
+.text:002D9818 ; =============== S U B R O U T I N E =======================================
+.text:002D9818
+.text:002D9818 ; Attributes: static
+.text:002D9818
+.text:002D9818 ; void CCollision::Update()
+.text:002D9818                 EXPORT _ZN10CCollision6UpdateEv
+.text:002D9818 _ZN10CCollision6UpdateEv                ; CODE XREF: CCollision::Update(void)+8↑j
+.text:002D9818                                         ; DATA XREF: LOAD:00049DFC↑o ...
+.text:002D9818 ; __unwind {
+.text:002D9818                 BX              LR
+.text:002D9818 ; End of function CCollision::Update(void)
+.text:002D9818
+.text:002D9818 ; ---------------------------------------------------------------------------
+.text:002D981A                 ALIGN 4
+.text:002D981A ; } // starts at 2D9818
+.text:002D981C
+.text:002D981C ; =============== S U B R O U T I N E =======================================
+.text:002D981C
+.text:002D981C ; Attributes: static
+.text:002D981C
+.text:002D981C ; void CCollision::SortOutCollisionAfterLoad()
+.text:002D981C                 EXPORT _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:002D981C _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:002D981C                                         ; CODE XREF: CCollision::SortOutCollisionAfterLoad(void)+8↑j
+.text:002D981C                                         ; DATA XREF: LOAD:00037EDC↑o ...
+.text:002D981C ; __unwind {
+.text:002D981C                 PUSH            {R7,LR}
+.text:002D981E                 MOV             R7, SP
+.text:002D9820                 LDR             R0, =(TheCamera_ptr - 0x2D9828)
+.text:002D9822                 MOVS            R3, #0  ; bLoadScene
+.text:002D9824                 ADD             R0, PC  ; TheCamera_ptr
+.text:002D9826                 LDR             R2, [R0] ; TheCamera
+.text:002D9828                 LDR.W           R0, [R2,#(TheCamera.m_cameraMatrix.tx - 0x951FA8)] ; posn
+.text:002D982C                 LDR.W           R1, [R2,#(TheCamera.m_cameraMatrix.ty - 0x951FA8)] ; posn
+.text:002D9830                 LDR.W           R2, [R2,#(TheCamera.m_cameraMatrix.tz - 0x951FA8)] ; posn
+.text:002D9834                 BLX             j__ZN9CColStore13LoadCollisionE7CVectorb ; CColStore::LoadCollision(CVector,bool)
+.text:002D9838                 MOVS            R0, #0  ; bPriorityRequestsOnly
+.text:002D983A                 POP.W           {R7,LR}
+.text:002D983E                 B.W             sub_19F678
+.text:002D983E ; End of function CCollision::SortOutCollisionAfterLoad(void)
+.text:002D983E
+.text:002D983E ; ---------------------------------------------------------------------------
+.text:002D9842                 ALIGN 4
+.text:002D9844 off_2D9844      DCD TheCamera_ptr - 0x2D9828
+.text:002D9844                                         ; DATA XREF: CCollision::SortOutCollisionAfterLoad(void)+4↑r
+.text:002D9844 ; } // starts at 2D981C
+.text:002D9848
+.text:002D9848 ; =============== S U B R O U T I N E =======================================
+.text:002D9848
+.text:002D9848 ; Attributes: static
+.text:002D9848
+.text:002D9848 ; void __fastcall CCollision::CalculateTrianglePlanes(CColModel *pModel)
+.text:002D9848                 EXPORT _ZN10CCollision23CalculateTrianglePlanesEP9CColModel
+.text:002D9848 _ZN10CCollision23CalculateTrianglePlanesEP9CColModel
+
+/// 8 arm
+.text:000000000039C3DC ; void __cdecl CCollision::SortOutCollisionAfterLoad()
+.text:000000000039C3DC                 EXPORT _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC _ZN10CCollision25SortOutCollisionAfterLoadEv
+.text:000000000039C3DC                                         ; CODE XREF: CCollision::SortOutCollisionAfterLoad(void)+C↑j
+.text:000000000039C3DC                                         ; DATA XREF: LOAD:0000000000040D40↑o ...
+.text:000000000039C3DC
+.text:000000000039C3DC var_s0          =  0
+.text:000000000039C3DC
+.text:000000000039C3DC ; __unwind {
+.text:000000000039C3DC                 STP             X29, X30, [SP,#-0x10+var_s0]!
+.text:000000000039C3E0                 MOV             X29, SP
+.text:000000000039C3E4                 ADRP            X8, #TheCamera_ptr@PAGE
+.text:000000000039C3E8                 LDR             X8, [X8,#TheCamera_ptr@PAGEOFF]
+.text:000000000039C3EC                 MOV             W0, WZR ; bLoadScene
+.text:000000000039C3F0                 LDR             S0, [X8,#(TheCamera.m_cameraMatrix.tx - 0xBBA8D0)] ; posn
+.text:000000000039C3F4                 LDR             S1, [X8,#(TheCamera.m_cameraMatrix.ty - 0xBBA8D0)] ; posn
+.text:000000000039C3F8                 LDR             S2, [X8,#(TheCamera.m_cameraMatrix.tz - 0xBBA8D0)] ; posn
+.text:000000000039C3FC                 BL              ._ZN9CColStore13LoadCollisionE7CVectorb ; CColStore::LoadCollision(CVector,bool)
+.text:000000000039C400                 MOV             W0, WZR ; bPriorityRequestsOnly
+.text:000000000039C404                 LDP             X29, X30, [SP+var_s0],#0x10
+.text:000000000039C408                 B               ._ZN10CStreaming22LoadAllRequestedModelsEb ; CStreaming::LoadAllRequestedModels(bool)
+.text:000000000039C408 ; } // starts at 39C3DC
+.text:000000000039C408 ; End of function CCollision::SortOutCollisionAfterLoad(void)
+.text:000000000039C408
+.text:000000000039C40C
+.text:000000000039C40C ; =============== S U B R O U T I N E =======================================

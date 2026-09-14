@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "241521036346",
+    "firebase_url": "https://space-rp-1cab4-default-rtdb.firebaseio.com",
+    "project_id": "space-rp-1cab4",
+    "storage_bucket": "space-rp-1cab4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241521036346:android:69f0fc86e5a36ff865f903",
+        "android_client_info": {
+          "package_name": "ru.edgar.space"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241521036346-19rrcdmq1qha3mrhugcnsm8hm10s14is.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.edgar.space",
+            "certificate_hash": "ada98a096efb53efbeeb34353aee66a16aa3787a"
+          }
+        },
+        {
+          "client_id": "241521036346-g70rejqvt5jeau543spjf38qm405e42n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrW3_2faD1GlFMdyImPYBUgren6N40eCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241521036346-g70rejqvt5jeau543spjf38qm405e42n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
