@@ -3,6 +3,7 @@ package ru.edgar.launcher.fragment;
 import android.animation.TimeInterpolator;
 import android.content.Context;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,11 +41,15 @@ import ru.edgar.space.R;
 
 public class SplashFragment extends MainActivity{
 
+    private static final String DEFAULT_API_LINK =
+            "https://raw.githubusercontent.com/edgardevwork/space-json-php/main/api/api1.php";
+
     ImageView splash_logo;
 
     public ee panzto;
 
     String apiLink;
+    private boolean apiFallbackAttempted;
 
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
@@ -112,8 +117,10 @@ public class SplashFragment extends MainActivity{
     }
 
     public void loadJsons() {
+        apiFallbackAttempted = false;
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api-free.edgars.site/")
+                .baseUrl("https://raw.githubusercontent.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -130,9 +137,20 @@ public class SplashFragment extends MainActivity{
             @Override
             public void onComplete(@NonNull Task<Boolean> task) {
                 if (task.isSuccessful()) {
-                    apiLink = mFirebaseRemoteConfig.getString("api1Link");
+                    String configuredApiLink = mFirebaseRemoteConfig.getString("api1Link");
+                    if (TextUtils.isEmpty(configuredApiLink)) {
+                        Log.w("Google FireBase", "Remote Config key api1Link is empty; using the default API link");
+                        apiLink = DEFAULT_API_LINK;
+                    } else {
+                        apiLink = configuredApiLink.trim();
+                        if (!isHttpUrl(apiLink)) {
+                            Log.w("Google FireBase", "Remote Config key api1Link is invalid; using the default API link");
+                            apiLink = DEFAULT_API_LINK;
+                        }
+                    }
                 } else {
-                    Log.e("Google FireBase", "SLIHILAC HOPA");
+                    Log.w("Google FireBase", "Remote Config fetch failed; using the default API link", task.getException());
+                    apiLink = DEFAULT_API_LINK;
                 }
 
                 sInterface.getApi(apiLink).enqueue(new Callback<Api>() {
@@ -304,21 +322,47 @@ public class SplashFragment extends MainActivity{
                                     });
                                 }
                             } else {
+                                if (!apiFallbackAttempted && !DEFAULT_API_LINK.equals(apiLink)) {
+                                    apiFallbackAttempted = true;
+                                    apiLink = DEFAULT_API_LINK;
+                                    Log.w("api-", "Configured API returned an empty body; retrying with the default API link");
+                                    sInterface.getApi(apiLink).enqueue(this);
+                                    return;
+                                }
                                 Log.e("api-", "api----");
                                 MainActivity.getMainActivity().openDialog(R.drawable.ic_launcher_alert, "Не удаётся установить соединение с сервером!\nПовторите попытку позже.", "Повторить", null, new loadJsonRepit(), null);
                             }
                         } else {
+                            if (!apiFallbackAttempted && !DEFAULT_API_LINK.equals(apiLink)) {
+                                apiFallbackAttempted = true;
+                                apiLink = DEFAULT_API_LINK;
+                                Log.w("api-", "Configured API returned HTTP " + response.code() + "; retrying with the default API link");
+                                sInterface.getApi(apiLink).enqueue(this);
+                                return;
+                            }
                             Log.e("api-", "api---1-");
                             MainActivity.getMainActivity().openDialog(R.drawable.ic_launcher_alert, "Не удаётся установить соединение с сервером!\nПовторите попытку позже.", "Повторить", null, new loadJsonRepit(), null);
                         }
                     }
                     public void onFailure(Call<Api> call, Throwable th) {
+                        if (!apiFallbackAttempted && !DEFAULT_API_LINK.equals(apiLink)) {
+                            apiFallbackAttempted = true;
+                            apiLink = DEFAULT_API_LINK;
+                            Log.w("api-", "Configured API request failed; retrying with the default API link", th);
+                            sInterface.getApi(apiLink).enqueue(this);
+                            return;
+                        }
                         Log.e("api-", "api----" + th.toString());
                         MainActivity.getMainActivity().openDialog(R.drawable.ic_launcher_alert, "Не удаётся установить соединение с сервером!\nПовторите попытку позже.", "Повторить", null, new loadJsonRepit(), null);
                     }
                 });
             }
         });
+    }
+
+    private boolean isHttpUrl(String url) {
+        return !TextUtils.isEmpty(url)
+                && (url.startsWith("https://") || url.startsWith("http://"));
     }
 
     public void show() {
