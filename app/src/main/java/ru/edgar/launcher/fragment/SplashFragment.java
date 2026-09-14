@@ -37,6 +37,7 @@ import ru.edgar.launcher.model.Servers;
 import ru.edgar.launcher.model.edgar;
 import ru.edgar.launcher.other.Interface;
 import ru.edgar.launcher.other.Lists;
+import ru.edgar.space.BuildConfig;
 import ru.edgar.space.R;
 
 public class SplashFragment extends MainActivity{
@@ -50,6 +51,7 @@ public class SplashFragment extends MainActivity{
 
     String apiLink;
     private boolean apiFallbackAttempted;
+    private boolean skipLauncherUpdateOnce;
 
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
 
@@ -85,6 +87,7 @@ public class SplashFragment extends MainActivity{
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
+            skipLauncherUpdateOnce = true;
             loadJsons();
             MainActivity.getMainActivity().dialogFragment.hide();
         }
@@ -158,9 +161,13 @@ public class SplashFragment extends MainActivity{
                         if(response.isSuccessful())
                         {
                             if(response.body() != null) {
-                                if(response.body().getLauncherVersion() != 34) {
+                                if (shouldOfferLauncherUpdate(response.body()) && !skipLauncherUpdateOnce) {
                                     MainActivity.getMainActivity().openDialog(R.drawable.ic_launcher_question, "Доступна новая версия клиента!\nЗагрузить обновление?", "Да", "Нет", new downloadApk(response.body().getLauncherUrl(), response.body().getLauncherPath(), response.body().getLauncherName()), new noUpdate());
                                 } else {
+                                    if (skipLauncherUpdateOnce) {
+                                        Log.i("launcher-update", "Continuing without launcher update after user choice");
+                                        skipLauncherUpdateOnce = false;
+                                    }
                                     if (response.body().getIsTest()) {
                                         if (!response.body().getTestApi()) {
                                             MainActivity.getMainActivity().openDialog(R.drawable.ic_launcher_alert, "Тестовая версия клиента закрыта!\nОжидайте следующих тестов...", "Понял", null, new onDes(), null);
@@ -363,6 +370,22 @@ public class SplashFragment extends MainActivity{
     private boolean isHttpUrl(String url) {
         return !TextUtils.isEmpty(url)
                 && (url.startsWith("https://") || url.startsWith("http://"));
+    }
+
+    private boolean shouldOfferLauncherUpdate(Api api) {
+        Integer remoteVersion = api.getLauncherVersion();
+        boolean newerVersion = remoteVersion != null && remoteVersion > BuildConfig.VERSION_CODE;
+        boolean validDownloadUrl = isHttpUrl(api.getLauncherUrl());
+
+        if (remoteVersion != null && !newerVersion) {
+            Log.i("launcher-update", "Ignoring stale launcher version " + remoteVersion
+                    + "; installed version code is " + BuildConfig.VERSION_CODE);
+        }
+        if (newerVersion && !validDownloadUrl) {
+            Log.w("launcher-update", "Ignoring update with an invalid download URL");
+        }
+
+        return newerVersion && validDownloadUrl;
     }
 
     public void show() {
